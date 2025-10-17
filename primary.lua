@@ -155,7 +155,7 @@ function encode(sequence)
     for i,truthIndex in pairs(truthTable) do
         letter = sequence[i]
 
-        finalWordUnConcated[truthIndex] = letter
+        finalSequence[truthIndex] = letter
 
     end
     return finalSequence
