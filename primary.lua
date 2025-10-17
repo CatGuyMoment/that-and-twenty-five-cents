@@ -31,6 +31,11 @@ function touchPart(part)
     firetouchinterest(TOUCHING_PART,part,boolToNum(state))
 
     partStates[part] = state
+
+    local state = not partStates[part]
+    firetouchinterest(TOUCHING_PART,part,boolToNum(state))
+    
+    partStates[part] = state
 end
 
 
