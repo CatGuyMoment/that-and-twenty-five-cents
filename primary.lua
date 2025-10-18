@@ -30,7 +30,7 @@ function touchPart(part)
     -- local state = not partStates[part]
     coroutine.wrap(function()
         firetouchinterest(TOUCHING_PART,part,1)
-        task.wait(0.2)
+        task.wait(0.5)
         firetouchinterest(TOUCHING_PART,part,0)
     end)()
 
