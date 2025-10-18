@@ -132,8 +132,10 @@ end
 
 
 function initialize()
+    print('PREPARING TOUCHING')
     prepareOptimalTouching()
 
+    print('PREPARING TRUTH TABLES')
     local truthTable = {}
     for i=1,16 do
         
