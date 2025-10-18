@@ -42,27 +42,27 @@ end
 
 function prepareOptimalTouching()
     for _,letterName in pairs(letters) do
-        firetouchinterest(TOUCHING_PART,PATH[letterName],1)
+        firetouchinterest(TOUCHING_PART,PATH[letterName],0)
 
 
     end
 
     task.wait(INIT_WAIT_TIME)
 
-    firetouchinterest(TOUCHING_PART,RESET_PATH,1)
+    firetouchinterest(TOUCHING_PART,RESET_PATH,0)
 
     task.wait(INIT_WAIT_TIME)
 
     for _,letterName in pairs(letters) do
         partStates[PATH[letterName]] = false
-        firetouchinterest(TOUCHING_PART,PATH[letterName],0)
+        firetouchinterest(TOUCHING_PART,PATH[letterName],1)
     end
 
 
     task.wait(INIT_WAIT_TIME)
 
 
-    firetouchinterest(TOUCHING_PART,RESET_PATH,0)
+    firetouchinterest(TOUCHING_PART,RESET_PATH,1)
     partStates[RESET_PATH] = false
     
     task.wait(INIT_WAIT_TIME)
