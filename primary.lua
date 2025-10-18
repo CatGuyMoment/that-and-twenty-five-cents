@@ -30,7 +30,7 @@ function touchPart(part)
     -- local state = not partStates[part]
     coroutine.wrap(function()
         firetouchinterest(TOUCHING_PART,part,1)
-        task.wait(0.5)
+        task.wait(0.15)
         firetouchinterest(TOUCHING_PART,part,0)
     end)()
 
@@ -42,7 +42,7 @@ end
 
 function prepareOptimalTouching()
     for _,letterName in pairs(letters) do
-        firetouchinterest(TOUCHING_PART,PATH[letterName],0)
+        firetouchinterest(TOUCHING_PART,PATH[letterName],1)
 
 
     end
@@ -55,7 +55,7 @@ function prepareOptimalTouching()
 
     for _,letterName in pairs(letters) do
         partStates[PATH[letterName]] = false
-        firetouchinterest(TOUCHING_PART,PATH[letterName],1)
+        firetouchinterest(TOUCHING_PART,PATH[letterName],0)
     end
 
 
