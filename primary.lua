@@ -32,10 +32,7 @@ function touchPart(part)
 
     partStates[part] = state
 
-    local state = not partStates[part]
-    firetouchinterest(TOUCHING_PART,part,boolToNum(state))
-    
-    partStates[part] = state
+
 end
 
 
@@ -48,14 +45,15 @@ function prepareOptimalTouching()
 
     task.wait(INIT_WAIT_TIME)
 
+    firetouchinterest(TOUCHING_PART,RESET_PATH,1)
+
+    task.wait(INIT_WAIT_TIME)
+
     for _,letterName in pairs(letters) do
         partStates[PATH[letterName]] = false
         firetouchinterest(TOUCHING_PART,PATH[letterName],0)
     end
 
-    task.wait(INIT_WAIT_TIME)
-
-    firetouchinterest(TOUCHING_PART,RESET_PATH,1)
 
     task.wait(INIT_WAIT_TIME)
 
@@ -140,13 +138,13 @@ function initialize()
     for i=1,16 do
         
         local output = attemptToGetTruthTable(i)
-        task.wait(INIT_WAIT_TIME*3)
+        task.wait(INIT_WAIT_TIME)
         touchPart(RESET_PATH)
-        task.wait(INIT_WAIT_TIME*3)
+        task.wait(INIT_WAIT_TIME)
 
         if output then
             GLOBAL_TRUTH_TABLE = output
-            break
+            -- break
         end
     end
     
