@@ -27,10 +27,14 @@ local RUN_WAIT_TIME = 0.5
 local GLOBAL_TRUTH_TABLE = {}
 
 function touchPart(part)
-    local state = not partStates[part]
-    firetouchinterest(TOUCHING_PART,part,boolToNum(state))
+    -- local state = not partStates[part]
+    coroutine.wrap(function()
+        firetouchinterest(TOUCHING_PART,part,1)
+        task.wait(0.2)
+        firetouchinterest(TOUCHING_PART,part,0)
+    end)()
 
-    partStates[part] = state
+    -- partStates[part] = state
 
 
 end
